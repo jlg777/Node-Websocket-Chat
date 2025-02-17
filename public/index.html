@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -21,7 +21,7 @@
         grid-template-rows: 1fr;
     }
 
-    #chat{
+    #chat {
         border: 1px solid #ccc;
         border-radius: 4px;
         overflow: hidden;
@@ -29,12 +29,19 @@
         height: 100%;
         position: relative;
     }
+
+    :root {
+        color-scheme: light dark;
+    }
 </style>
 
 <body>
-<section id="chat">
-    <form></form>
-</section>
+    <section id="chat">
+        <form>
+            <input type="text" name="" id="" placeholder="ingrese su texto">
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
 </body>
 
 </html>

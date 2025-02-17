@@ -1,5 +1,5 @@
 {
-  "name": "09.chat",
+  "name": "socket-chat-examplet",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
@@ -8,11 +8,12 @@
     "dev": "node --watch src/server/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jorge Grandia",
   "license": "ISC",
-  "description": "",
+  "description": "my first socket.io app",
   "dependencies": {
     "express": "^4.21.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "socket.io": "^4.8.1"
   }
 }
