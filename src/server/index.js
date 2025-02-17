@@ -7,11 +7,20 @@ import { Server } from 'socket.io'
 const app = express()
 
 app.use(morgan('dev'))
-const server = createServer(app);
-const io = new Server(server);
+const server = createServer(app)
+const io = new Server(server)
 
 io.on('connection', (socket) => {
   console.log('a user conected')
+  io.emit('chat message', 'usuario conectado')
+
+  socket.on('chat message', (msg) => {
+    io.emit('chat message', msg)
+  })
+
+  socket.on('disconnect', () => {
+    console.log('user disconnected')
+  })
 })
 
 // Servir archivos estáticos desde la carpeta 'public'
