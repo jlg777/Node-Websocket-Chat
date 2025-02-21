@@ -27,11 +27,11 @@
         padding: 0;
     }
 
-    #messages > li {
+    #messages>li {
         padding: .5rem 1rem;
     }
 
-    #messages > li:nth-child(odd) {
+    #messages>li:nth-child(odd) {
         background: #000;
     }
 
@@ -93,7 +93,11 @@
     </section>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-        const socket = io();
+        const socket = io({
+            auth: {
+                serverOffset: 0
+            }
+        });
 
         const form = document.getElementById('form');
         const input = document.getElementById('input');
@@ -108,11 +112,12 @@
             }
         });
 
-        socket.on('chat message', (msg) => {
-            const item = document.createElement('li');
-            item.textContent = msg;
-            messages.appendChild(item);
-            window.scrollTo(0, document.body.scrollHeight);
+        socket.on('chat message', (msg, serverOffset) => {
+            const item = `<li>${msg}</li>`;
+            messages.insertAdjacentHTML('beforeend', item);
+            console.log(socket.auth.serverOffset)
+            socket.auth.serverOffset = serverOffset
+            console.log(serverOffset)
         });
 
     </script>
